@@ -37,16 +37,50 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>Building Quality Homes &amp; Renovations Since 2004</h1>
-            <p>
-                Professional Renovations, New Builds, Extensions,
-                Duplex Builds and Property Additions in Canberra.
-            </p>
-            <a href="#contact" class="btn">Get a Free Quote</a>
+<section class="hero-slider">
+
+    <div class="slide active">
+        <img src="Photos/slider.jpg" alt="">
+        <div class="overlay">
+            <h1>Building Quality Homes & Renovations</h1>
+            <p>Professional construction services in Canberra</p>
         </div>
-    </section>
+    </div>
+
+    <div class="slide">
+        <img src="Photos/slide.jpg" alt="">
+        <div class="overlay">
+            <h1>Modern Renovations & Extensions</h1>
+            <p>Upgrade your home with expert builders</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="Photos/slid.jpg" alt="">
+        <div class="overlay">
+            <h1>Custom New Builds</h1>
+            <p>Designed and built for your lifestyle</p>
+        </div>
+    </div>
+
+    <script>
+       let slides = document.querySelectorAll(".slide");
+       let index = 0;
+
+         function showSlide() {
+          slides.forEach(slide => slide.classList.remove("active"));
+          slides[index].classList.add("active");
+
+           index++;
+            if (index >= slides.length) {
+            index = 0;
+           }
+        }
+
+setInterval(showSlide, 3000); // change every 3 seconds
+</script>
+
+</section>
 
     <section id="about" class="about">
         <div class="container about-flex">
@@ -62,7 +96,7 @@
 
             <div class="about-images">
                 <img src="Photos/about.jpg" class="img1" alt="Our Quality Construction Work">
-                <img src="Photos/about.jpg" class="img2" alt="Modern Home Renovation">
+                <img src="Photos/photo2.jpg" class="img2" alt="Modern Home Renovation">
             </div>
         </div>
     </section>
@@ -125,6 +159,39 @@
         </div>
     </section>
 
+    <!-- WHY CHOOSE US -->
+<section class="why-choose">
+    <div class="container why-flex">
+
+        <!-- LEFT IMAGE -->
+        <div class="why-image">
+            <img src="Photos/slider.jpg" alt="Why Choose Us">
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="why-content">
+
+            <h2>Why Choose Us</h2>
+
+            <p>
+                ACT Custom Building is trusted for delivering high-quality construction
+                services in Canberra. We focus on strong design, durable materials,
+                and customer satisfaction in every project.
+            </p>
+
+            <ul>
+                <li><i class="fa-solid fa-check"></i> 20+ Years Experience</li>
+                <li><i class="fa-solid fa-check"></i> Skilled & Professional Team</li>
+                <li><i class="fa-solid fa-check"></i> High Quality Materials</li>
+                <li><i class="fa-solid fa-check"></i> On-Time Project Delivery</li>
+                <li><i class="fa-solid fa-check"></i> Affordable Pricing</li>
+            </ul>
+
+        </div>
+
+    </div>
+</section>
+
     <section id="contact" class="contact">
         <div class="container contact-container">
             <h2>Contact Us</h2>
@@ -158,26 +225,62 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-flex">
-            <div class="footer-box brand-box">
-                <h3>ACT Custom Building</h3>
-                <p>Delivering premier building, extensions, and custom structural remodeling transformations throughout Canberra for more than two decades.</p>
-            </div>
-            <div class="footer-box links-box">
-                <h3>Quick Links</h3>
-                <p><a href="#">Home</a></p>
-                <p><a href="#about">About Us</a></p>
-                <p><a href="#services">Our Services</a></p>
-                <p><a href="#contact">Contact Us</a></p>
-            </div>
+<footer>
+    <div class="container footer-flex">
+
+        <div class="footer-box brand-box">
+            <h3>ACT Custom Building</h3>
+            <p>
+                Delivering premier building, extensions, and custom structural
+                remodeling transformations throughout Canberra for more than two decades.
+            </p>
         </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2026 ACT Custom Building. All Rights Reserved.</p>
-            </div>
+
+        <div class="footer-box links-box">
+            <h3>Quick Links</h3>
+            <p><a href="#">Home</a></p>
+            <p><a href="#about">About Us</a></p>
+            <p><a href="#services">Our Services</a></p>
+            <p><a href="#contact">Contact Us</a></p>
         </div>
-    </footer>
+
+        <div class="footer-box contact-box">
+            <h3>Contact Info</h3>
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                <a href="tel:0421286928">0421 286 928</a>
+            </p>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:matt.lance@actcustombuilding.com.au">
+                    matt.lance@actcustombuilding.com.au
+                </a>
+            </p>
+
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                Canberra, ACT
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 ACT Custom Building. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+</script>
 
 </body>
 </html>

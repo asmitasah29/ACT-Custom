@@ -29,6 +29,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--white);
+    margin:0;
 }
 
 .container {
@@ -95,11 +96,6 @@ nav a:hover {
     cursor: pointer;
 }
 
-.dropdown-arrow {
-    font-size: 0.75rem;
-    transition: transform var(--transition-speed);
-}
-
 .dropdown:hover .dropdown-arrow {
     transform: rotate(180deg);
 }
@@ -128,18 +124,13 @@ nav a:hover {
     transition: background var(--transition-speed), color var(--transition-speed);
 }
 
-.dropdown-content a:hover {
-    background: var(--light-neutral);
-    color: var(--primary-color);
-}
-
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
 /* --- Hero Section --- */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('images/hero.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(46, 48, 49, 0.65), rgba(27, 38, 102, 0.65)), url('images/hero.jpg') no-repeat center center/cover;
     height: 75vh;
     display: flex;
     align-items: center;
@@ -186,7 +177,50 @@ nav a:hover {
     box-shadow: 0 6px 20px rgba(245, 124, 0, 0.4);
 }
 
-/* --- Section Global Structure --- */
+.hero-slider {
+    position: relative;
+    height: 90vh;
+    overflow: hidden;
+    margin:0;
+    padding:0;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: rgb(17, 18, 19);
+    max-width: 500px;
+}
+
+.overlay h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 18px;
+}
+
 section {
     padding: 100px 0;
 }
@@ -196,35 +230,14 @@ section h2 {
     margin-bottom: 50px;
     font-size: 2.25rem;
     font-weight: 700;
-    color: var(--dark-neutral);
-    position: relative;
 }
 
-section h2::after {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 4px;
-    background: var(--primary-color);
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
-}
 
 /* --- About Us Section Layout --- */
 .about {
     background-color: var(--white);
 }
 
-.about h2 {
-    text-align: left;
-}
-
-.about h2::after {
-    left: 0;
-    transform: none;
-}
 
 .about-flex {
     display: flex;
@@ -280,8 +293,7 @@ section h2::after {
     z-index: 5;
 }
 
-/* --- Services Grid System --- */
-/* --- Services Section (Single Column Split Layout) --- */
+/* --- Services Section  --- */
 .services {
     background-color: var(--light-neutral);
 }
@@ -293,15 +305,13 @@ section h2::after {
     gap: 60px;
 }
 
-/* Left Column holding the stacked services */
 .services-column {
     flex: 1.2;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Spacing between stacked items */
+    gap: 15px; 
 }
 
-/* Force text alignment left since they are in a column */
 .services-column h2 {
     text-align: left;
     margin-bottom: 35px;
@@ -312,7 +322,6 @@ section h2::after {
     transform: none;
 }
 
-/* Horizontal single-row service box design */
 .service-box {
     background: var(--white);
     padding: 20px 25px;
@@ -358,7 +367,7 @@ section h2::after {
     color: var(--white);
 }
 
-/* Text adjustments for side-by-side display */
+
 .service-text {
     text-align: left;
 }
@@ -369,13 +378,7 @@ section h2::after {
     color: var(--dark-neutral);
 }
 
-.service-text p {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0;
-}
 
-/* Right Column: Visual Showcase Graphic */
 .services-showcase {
     flex: 1;
     position: relative;
@@ -390,7 +393,6 @@ section h2::after {
     box-shadow: var(--shadow-bold);
 }
 
-/* Small premium layout banner on top of image */
 .showcase-badge {
     position: absolute;
     bottom: -20px;
@@ -403,19 +405,7 @@ section h2::after {
     text-align: center;
 }
 
-.showcase-badge h4 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 5px;
-}
 
-.showcase-badge p {
-    font-size: 0.85rem;
-    margin: 0;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
 
 /* Mobile responsive fix for split view */
 @media (max-width: 992px) {
@@ -424,20 +414,97 @@ section h2::after {
         gap: 40px;
     }
     
-    .services-showcase {
-        width: 100%;
-        height: 350px;
+
+
+}
+
+/* ================= WHY CHOOSE US (SIDE LAYOUT) ================= */
+
+.why-choose {
+    padding: 90px 0;
+    background: #f8f9fa;
+}
+
+.why-flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+/* LEFT IMAGE */
+.why-image {
+    flex: 1.2;
+}
+
+.why-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    object-fit: cover;
+    height: 450px;
+}
+
+/* RIGHT CONTENT */
+.why-content {
+    flex: 1;
+}
+
+.why-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.why-content p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.why-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.why-content ul li {
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.why-content ul li i {
+    color: #f57c00;
+}
+
+/* HOVER EFFECT */
+.why-image img:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease;
+}
+
+@media (max-width: 768px) {
+
+    .why-flex {
+        flex-direction: column;
+        text-align: center;
     }
-    
-    .showcase-badge {
-        bottom: 20px;
-        left: 20px;
+
+    .why-content ul li {
+        justify-content: center;
+    }
+
+    .why-content h2 {
+        font-size: 1.8rem;
     }
 }
 
 /* --- Contact Us Section Layout --- */
 .contact {
-    background: var(--white);
+    background: white;
 }
 
 .contact-subtitle {
@@ -462,21 +529,10 @@ section h2::after {
     transition: background var(--transition-speed), transform var(--transition-speed);
 }
 
-.contact-card:hover {
-    background: #fff9f2;
-    transform: translateY(-5px);
-}
-
 .contact-card i {
     font-size: 28px;
     color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
-.contact-card h4 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    color: var(--dark-neutral);
+    margin-bottom: 20px;
 }
 
 .contact-card p, 
@@ -487,27 +543,36 @@ section h2::after {
     word-break: break-word;
 }
 
-.contact-card a:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
-}
+
 
 /* --- Footer Elements --- */
 footer {
-    background: var(--dark-neutral);
-    color: var(--white);
+    background:rgb(81, 80, 80);
     padding: 70px 0 0;
 }
 
 footer .footer-flex {
     display: flex;
     justify-content: space-between;
-    gap: 50px;
     padding-bottom: 40px;
 }
 
-.footer-box {
-    flex: 1;
+.footer-box.contact-box p {
+    display: flex;
+    gap: 12px;
+    margin: 15px 0;
+    flex-wrap: nowrap;
+}
+
+.footer-box.contact-box i {
+    color: #eee9dd;
+    min-width: 20px;
+}
+
+.footer-box.contact-box a {
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 .brand-box {
@@ -523,7 +588,7 @@ footer .footer-flex {
 }
 
 .footer-box p {
-    color: #bbb;
+    color: #f6f3f3;
     font-size: 0.95rem;
     line-height: 1.7;
 }
@@ -533,14 +598,9 @@ footer .footer-flex {
 }
 
 .links-box a {
-    color: #bbb;
+    color: #faf6f6;
     text-decoration: none;
-    transition: color var(--transition-speed), padding-left var(--transition-speed);
-}
 
-.links-box a:hover {
-    color: var(--primary-color);
-    padding-left: 5px;
 }
 
 .footer-bottom {
@@ -548,7 +608,7 @@ footer .footer-flex {
     padding: 25px 0;
     border-top: 1px solid #333;
     font-size: 0.9rem;
-    color: #888;
+    color: #f6f2f2;
 }
 
 /* --- Responsive Layout Breakpoints --- */
@@ -566,67 +626,47 @@ footer .footer-flex {
         padding: 70px 0;
     }
     
-    .header-container {
-        flex-direction: column;
-        gap: 15px;
+}
+
+/* ================= HAMBURGER ================= */
+
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* MOBILE NAV */
+@media (max-width: 768px) {
+
+    .hamburger {
+        display: block;
     }
 
     nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
         width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px 0;
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+        display: none;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    nav.active {
+        display: flex;
     }
 
     nav a {
-        margin: 0 12px;
-        font-size: 0.9rem;
+        margin: 10px 0;
+        width: 100%;
     }
 
     .dropdown-content {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .hero {
-        height: 60vh;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .about-flex {
-        flex-direction: column;
-    }
-
-    .about h2 {
-        text-align: center;
-    }
-
-    .about h2::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .about-images {
-        width: 100%;
-        max-width: 450px;
-        height: 300px;
-        margin-top: 30px;
-    }
-    
-    .about-images .img1,
-    .about-images .img2 {
-        height: 200px;
-    }
-
-    footer .footer-flex {
-        flex-direction: column;
-        gap: 35px;
+        position: relative;
+        box-shadow: none;
     }
 }
